@@ -41,6 +41,7 @@ const VideoPage = () => {
       // Todo: Open pro modal
       console.log(error);
     } finally {
+      router.refresh();
     }
   };
 
