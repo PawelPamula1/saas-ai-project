@@ -5,8 +5,6 @@ import { useRouter } from "next/navigation";
 import {
   ArrowRight,
   Code,
-  CodeIcon,
-  Image,
   ImageIcon,
   MessagesSquare,
   Music,

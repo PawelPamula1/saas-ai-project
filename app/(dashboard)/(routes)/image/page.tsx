@@ -1,7 +1,7 @@
 "use client";
 import * as z from "zod";
 import Heading from "@/components/heading";
-import { Download, ImageIcon, MessageSquare } from "lucide-react";
+import { Download, ImageIcon } from "lucide-react";
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -11,11 +11,8 @@ import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { useRouter } from "next/navigation";
 import axios from "axios";
-import { cn } from "@/lib/utils";
 import { Empty } from "@/components/empty";
 import { Loader } from "@/components/loader";
-import { UserAvatar } from "@/components/user-avatar";
-import { BotAvatar } from "@/components/bot-avatar";
 import {
   Select,
   SelectContent,

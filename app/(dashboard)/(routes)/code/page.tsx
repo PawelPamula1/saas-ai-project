@@ -1,7 +1,7 @@
 "use client";
 import * as z from "zod";
 import Heading from "@/components/heading";
-import { Code, MessageSquare } from "lucide-react";
+import { Code } from "lucide-react";
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
