@@ -1,6 +1,7 @@
 import { auth } from "@clerk/nextjs";
 import { NextResponse } from "next/server";
 import Replicate from "replicate";
+import { increaseApiLimit, checkApiLimit } from "@/lib/api-limit";
 
 const replicate = new Replicate({
   auth: process.env.REPLICATE_MUSIC_API_KEY!,
@@ -20,6 +21,12 @@ export async function POST(req: Request) {
       return new NextResponse("Prompt is required", { status: 401 });
     }
 
+    const freeTrial = await checkApiLimit();
+
+    if (!freeTrial) {
+      return new NextResponse("Free trial has expired.", { status: 403 });
+    }
+
     const response = await replicate.run(
       "cjwbw/damo-text-to-video:1e205ea73084bd17a0a3b43396e49ba0d6bc2e754e9283b2df49fad2dcf95755",
       {
@@ -28,6 +35,9 @@ export async function POST(req: Request) {
         },
       }
     );
+
+    await increaseApiLimit();
+
     return NextResponse.json(response);
   } catch (error) {
     console.log("[MUSIC_ERROR]", error);
