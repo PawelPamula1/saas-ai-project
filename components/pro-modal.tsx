@@ -105,6 +105,7 @@ export const ProModal = () => {
         <DialogFooter>
           <Button
             onClick={onSubscribe}
+            disabled={loading}
             size="lg"
             variant="upgrade"
             className="w-full"
