@@ -23,7 +23,7 @@ import { toast } from "react-hot-toast";
 const CodePage = () => {
   const router = useRouter();
   const proModal = useProModal();
-  const [messages, setMessages] = useState<>([]);
+  const [messages, setMessages] = useState([]);
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
